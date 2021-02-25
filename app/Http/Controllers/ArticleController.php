@@ -22,4 +22,9 @@ class ArticleController extends Controller
     {
         return view('articles.create');
     }
+
+    public function store()
+    {
+        die('hey');
+    }
 }

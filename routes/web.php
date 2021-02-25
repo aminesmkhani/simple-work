@@ -24,5 +24,6 @@ Route::get('/about',function (){
     return view('about',compact('articles'));
 });
 Route::get('/articles/create','ArticleController@create');
+Route::post('/articles','ArticleController@store');
 Route::get('/articles/{article}','ArticleController@show');
 Route::get('/articles','ArticleController@index');

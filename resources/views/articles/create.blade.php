@@ -3,9 +3,10 @@
 @section('content')
     <div id="wrapper">
         <div id="page" class="container">
-            <h1>New Article</h1>
-            <form action="">
-                <div>
+            <h1 class="heading has-text-weight-bold is-size-4">New Article</h1>
+            <form method="post" action="/articles">
+                @csrf
+                <div class="field">
                     <label for="label" for="title">Title</label>
 
                     <div class="control">
@@ -13,7 +14,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="field">
                     <label for="label" for="excerpt">Excerpt</label>
 
                     <div class="control">
@@ -22,7 +23,7 @@
                 </div>
 
 
-                <div>
+                <div class="field">
                     <label for="label" for="body">Body</label>
 
                     <div class="control">
