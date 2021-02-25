@@ -23,6 +23,6 @@ Route::get('/about',function (){
     $articles  = \App\Models\Article::latest()->get();
     return view('about',compact('articles'));
 });
-
+Route::get('/articles/create','ArticleController@create');
 Route::get('/articles/{article}','ArticleController@show');
 Route::get('/articles','ArticleController@index');
