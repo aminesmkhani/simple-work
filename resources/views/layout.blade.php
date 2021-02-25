@@ -20,7 +20,7 @@ Released   : 20140225
     <link href="{{asset('css/default.css')}}" rel="stylesheet" />
     <link href="{{asset('css/fonts.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+    @yield('header')
 </head>
 <body>
 <div id="header-wrapper">
