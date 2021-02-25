@@ -25,7 +25,10 @@ class ArticleController extends Controller
 
     public function store()
     {
-        // persist the new article
+        // validation
+
+
+        // clean up
         $article = new Article();
         $article->title = \request('title');
         $article->excerpt = \request('excerpt');
