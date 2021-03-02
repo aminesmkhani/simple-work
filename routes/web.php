@@ -23,7 +23,9 @@ Route::get('/about',function (){
     $articles  = \App\Models\Article::latest()->get();
     return view('about',compact('articles'));
 });
-Route::get('/articles/create','ArticleController@create');
+Route::get('/articles','ArticleController@index')->name('article');
 Route::post('/articles','ArticleController@store');
+Route::get('/articles/create','ArticleController@create');
 Route::get('/articles/{article}','ArticleController@show');
-Route::get('/articles','ArticleController@index');
+Route::get('/articles/{article}/edit','ArticleController@edit');
+Route::put('/articles/{article}','ArticlesController@update');
