@@ -10,6 +10,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::latest()->get();
+
         return view('articles.index',compact('articles'));
     }
     public function show(Article $article)
@@ -37,11 +38,13 @@ class ArticleController extends Controller
 
     public function update(Article $article)
     {
-        $article->update($this->validateArticle());
+       $article->update($this->validateArticle());
+
        return redirect($article->path());
     }
 
     protected function validateArticle(){
+
         return request()->validate([
            'title' => 'required',
            'excerpt' => 'required',
