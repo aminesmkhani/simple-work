@@ -8,12 +8,14 @@
                 </div>
                 <div id="sidebar">
                     <ul class="style1">
-                        @foreach ($articles as $article)
+                        @forelse($articles as $article)
                             <li class="first">
                                 <h3><a href="{{$article->path()}}">{{$article->title}}</a></h3>
                                 <p><a href="#">{{$article->excerpt}}</a></p>
                             </li>
-                        @endforeach
+                        @empty
+                            <p>No Relevent Articles yet.</p>
+                        @endforelse
                     </ul>
                 </div>
             </div>
