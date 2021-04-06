@@ -24,13 +24,18 @@ class ArticleController extends Controller
 
     public function create()
     {
-        return view('articles.create');
+        return view('articles.create',['tags' => Tag::all()]);
     }
 
     public function store()
     {
-        Article::create($this->validateArticle());
+        $this->validateArticle();
 
+        $articles = new Article(request(['title','excerpt','body']));
+        $articles->user_id = 1;// auth()->id()
+        $articles->save();
+
+        $articles->tags()->attach(request('tags'));
         return redirect(route('articles.index'));
     }
 
@@ -53,6 +58,7 @@ class ArticleController extends Controller
            'title' => 'required',
            'excerpt' => 'required',
            'body' => 'required',
+            'tags' => 'exists:tags,id'
         ]);
     }
 }
